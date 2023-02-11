@@ -30,14 +30,14 @@ def get_price(soup):
 
     try:
         price = soup.find(
-            "span", attrs={'class':'a-offscreen'}).string.strip()
+            "span", attrs={'class': 'a-offscreen'}).string.strip()
 
     except AttributeError:
 
         try:
             # If there is some deal price
             price = soup.find(
-                "span", attrs={'class':'a-price-whole'}).string.strip()
+                "span", attrs={'class': 'a-price-whole'}).string.strip()
 
         except:
             price = ""
@@ -51,13 +51,13 @@ def get_rating(soup):
 
     try:
         rating = soup.find(
-            "i", attrs={'class':'a-icon a-icon-star a-star-4-5'}).string.strip()
+            "i", attrs={'class': 'a-icon a-icon-star a-star-4-5'}).string.strip()
 
     except AttributeError:
 
         try:
             rating = soup.find(
-                "span", attrs={'class':'a-icon-alt'}).string.strip()
+                "span", attrs={'class': 'a-icon-alt'}).string.strip()
         except:
             rating = ""
 
@@ -69,7 +69,7 @@ def get_rating(soup):
 def get_review_count(soup):
     try:
         review_count = soup.find(
-            "span", attrs={'id':'acrCustomerReviewText'}).string.strip()
+            "span", attrs={'id': 'acrCustomerReviewText'}).string.strip()
 
     except AttributeError:
         review_count = ""
@@ -109,7 +109,7 @@ if __name__ == '__main__':
     # Loop for extracting links from Tag Objects
     for link in links:
         links_list.append(link.get('href'))
-        # print(links_list,"\n")
+
     contents = []
     # Loop for extracting product details from each link
     for link in links_list:
